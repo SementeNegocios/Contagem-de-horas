@@ -8,15 +8,17 @@ function AlocaçõesSemente(){
     //var start = new Date().UTC();
     
     //chama a aba Alocações da planilha pelo ID
-    var ss = SpreadsheetApp.openById('1wHBOrNyVk6cweSqAvXLQXaoFLSPDMpgzHk_t55NuOF8');
+    var ss = SpreadsheetApp.openById('Id da planilha');
     var sheets = ss.getSheets();                   
-    var sheet = ss.getSheetByName('Alocações2');
+    var sheet = ss.getSheetByName('Alocações');
+    // Abre a aba de alocações
     //inserir linha depois da linha 3 pra manter as formulas funcionando
     //sheet.insertRowBefore(4);
     
-    //chama a aba Salários da planilha pelo ID e puxa os valores de Sementers[0] e Emails[1]
-    var reference = ss.getSheetByName('Sementers');
+    //chama a aba Salários da planilha pelo ID e puxa os valores de Funcionario[0] e Emails[1]
+    var reference = ss.getSheetByName('Funcionário');
     var sementers = reference.getRange(2,2,reference.getLastRow(),3).getValues();
+    // Métricas de referência coluna e célula, para onde começam os nome 
     
     //define o período a ser consultado, com a data atual, ano e mês atual, sete dias atrás
     var now = new Date();
@@ -33,7 +35,8 @@ function AlocaçõesSemente(){
     //last.setValue(Date);
     
     /////////////para cada sementer/////////////
-    for (var i = 20; i < sementers.length; i++){
+    for (var i = 0; i < sementers.length; i++){
+        // laço de repetição que permite que os funcionários tenham suas informações "jogadas" na planilha em sequência.
     //se quiser rodar começando de outro Sementer
     //for (var i = 32; i < sementers.length; i++){
     ////////////////////////////////////////////
